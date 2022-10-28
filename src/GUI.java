@@ -73,7 +73,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(0, 0)) {
 
                     gameMethods.MoveBox(0, 0);
-                    button00.setText(String.valueOf(gameArray[0][0]));
+                    setButtonNumbers();
                 }
             }
         });
@@ -85,7 +85,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(0, 1)) {
 
                     gameMethods.MoveBox(0, 1);
-                    button01.setText(String.valueOf(gameArray[0][1]));
+                    setButtonNumbers();
                 }
             }
         });
@@ -96,7 +96,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(0, 2)) {
 
                     gameMethods.MoveBox(0, 2);
-                    button02.setText(String.valueOf(gameArray[0][2]));
+                    setButtonNumbers();
                 }
 
             }
@@ -108,7 +108,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(0, 3)) {
 
                     gameMethods.MoveBox(0, 3);
-                    button03.setText(String.valueOf(gameArray[0][3]));
+                    setButtonNumbers();
                 }
 
             }
@@ -120,7 +120,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(1, 0)) {
 
                     gameMethods.MoveBox(1, 0);
-                    button10.setText(String.valueOf(gameArray[1][0]));
+                    setButtonNumbers();
                 }
 
             }
@@ -132,7 +132,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(1, 1)) {
 
                     gameMethods.MoveBox(1, 1);
-                    button11.setText(String.valueOf(gameArray[1][1]));
+                    setButtonNumbers();
                 }
 
             }
@@ -144,7 +144,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(1, 2)) {
 
                     gameMethods.MoveBox(1, 2);
-                    button12.setText(String.valueOf(gameArray[1][2]));
+                    setButtonNumbers();
                 }
 
             }
@@ -156,7 +156,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(1, 3)) {
 
                     gameMethods.MoveBox(1, 3);
-                    button13.setText(String.valueOf(gameArray[1][3]));
+                    setButtonNumbers();
                 }
 
             }
@@ -168,7 +168,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(2, 0)) {
 
                     gameMethods.MoveBox(2, 0);
-                    button20.setText(String.valueOf(gameArray[2][0]));
+                    setButtonNumbers();
                 }
 
             }
@@ -180,7 +180,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(2, 1)) {
 
                     gameMethods.MoveBox(2, 1);
-                    button21.setText(String.valueOf(gameArray[2][1]));
+                    setButtonNumbers();
                 }
 
             }
@@ -192,7 +192,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(2, 2)) {
 
                     gameMethods.MoveBox(2, 2);
-                    button22.setText(String.valueOf(gameArray[2][2]));
+                    setButtonNumbers();
                 }
 
             }
@@ -204,7 +204,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(2, 3)) {
 
                     gameMethods.MoveBox(2, 3);
-                    button23.setText(String.valueOf(gameArray[2][3]));
+                    setButtonNumbers();
                 }
 
             }
@@ -216,7 +216,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(3, 0)) {
 
                     gameMethods.MoveBox(3, 0);
-                    button30.setText(String.valueOf(gameArray[3][0]));
+                    setButtonNumbers();
                 }
 
             }
@@ -228,7 +228,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(3, 1)) {
 
                     gameMethods.MoveBox(3, 1);
-                    button31.setText(String.valueOf(gameArray[3][1]));
+                    setButtonNumbers();
                 }
 
             }
@@ -240,7 +240,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(3, 2)) {
 
                     gameMethods.MoveBox(3, 2);
-                    button32.setText(String.valueOf(gameArray[3][2]));
+                    setButtonNumbers();
                 }
 
             }
@@ -252,7 +252,7 @@ public class GUI extends JFrame {
                 if (gameMethods.IsValidMove(3, 3)) {
 
                     gameMethods.MoveBox(3, 3);
-                    button33.setText(String.valueOf(gameArray[3][3]));
+                    setButtonNumbers();
                 }
 
             }
@@ -261,29 +261,17 @@ public class GUI extends JFrame {
         newGame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameArray = gameMethods.NewGame();
-
-                button00.setText(String.valueOf(gameArray[0][0]));
-                button01.setText(String.valueOf(gameArray[0][1]));
-                button02.setText(String.valueOf(gameArray[0][2]));
-                button03.setText(String.valueOf(gameArray[0][3]));
-                button10.setText(String.valueOf(gameArray[1][0]));
-                button11.setText(String.valueOf(gameArray[1][1]));
-                button12.setText(String.valueOf(gameArray[1][2]));
-                button13.setText(String.valueOf(gameArray[1][3]));
-                button20.setText(String.valueOf(gameArray[2][0]));
-                button21.setText(String.valueOf(gameArray[2][1]));
-                button22.setText(String.valueOf(gameArray[2][2]));
-                button23.setText(String.valueOf(gameArray[2][3]));
-                button30.setText(String.valueOf(gameArray[3][0]));
-                button31.setText(String.valueOf(gameArray[3][1]));
-                button32.setText(String.valueOf(gameArray[3][2]));
-                button33.setText(String.valueOf(gameArray[3][3]));
-
+                gameMethods.NewGame();
+                gameArray = gameMethods.gameArray;
+                setButtonNumbers();
                 gameMethods.testGame();
 
             }
         });
+
+
+
+
 
 
         pack();
@@ -293,6 +281,24 @@ public class GUI extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 
+    }
+    protected void setButtonNumbers(){
+        button00.setText(String.valueOf(gameArray[0][0]));
+        button01.setText(String.valueOf(gameArray[0][1]));
+        button02.setText(String.valueOf(gameArray[0][2]));
+        button03.setText(String.valueOf(gameArray[0][3]));
+        button10.setText(String.valueOf(gameArray[1][0]));
+        button11.setText(String.valueOf(gameArray[1][1]));
+        button12.setText(String.valueOf(gameArray[1][2]));
+        button13.setText(String.valueOf(gameArray[1][3]));
+        button20.setText(String.valueOf(gameArray[2][0]));
+        button21.setText(String.valueOf(gameArray[2][1]));
+        button22.setText(String.valueOf(gameArray[2][2]));
+        button23.setText(String.valueOf(gameArray[2][3]));
+        button30.setText(String.valueOf(gameArray[3][0]));
+        button31.setText(String.valueOf(gameArray[3][1]));
+        button32.setText(String.valueOf(gameArray[3][2]));
+        button33.setText(String.valueOf(gameArray[3][3]));
     }
 }
 

@@ -56,6 +56,7 @@ public class GameMethods {
         System.out.println(gameArray[1][0] + " " + gameArray[1][1] + " " + gameArray[1][2] + " " + gameArray[1][3]);
         System.out.println(gameArray[2][0] + " " + gameArray[2][1] + " " + gameArray[2][2] + " " + gameArray[2][3]);
         System.out.println(gameArray[3][0] + " " + gameArray[3][1] + " " + gameArray[3][2] + " " + gameArray[3][3]);
+        System.out.println();
     }
 
     public void MoveBox(int x, int y) {
@@ -69,7 +70,13 @@ public class GameMethods {
     }
 
     public boolean IsValidMove(int x, int y) {
-        if (x == emptyBoxX && y + 1 == emptyBoxY || y - 1 == emptyBoxY || y == emptyBoxY && x + 1 == emptyBoxX || x - 1 == emptyBoxX) {
+        if (x == emptyBoxX && y + 1 == emptyBoxY) {
+            return true;
+        } else if (x == emptyBoxX && y - 1 == emptyBoxY) {
+            return true;
+        } else if (y == emptyBoxY && x + 1 == emptyBoxX) {
+            return true;
+        } else if (y == emptyBoxY && x - 1 == emptyBoxX) {
             return true;
         } else return false;
     }
