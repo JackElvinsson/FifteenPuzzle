@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -7,12 +8,22 @@ public class GameMethods {
 
     //Lista för dubbletter
     List<Integer> numberList = new ArrayList<>();
+    protected int emptyBoxX;
+    protected int emptyBoxY;
 
     //Genererar nytt nummer för varje ruta
     public void NewGame(){
         for (int i = 0; i <= 3; i++) {
             for (int j = 0; j <= 3; j++) {
-                gameArray[i][j] = String.valueOf(randomNum());
+                String temp = String.valueOf(randomNum());
+                if(temp.isBlank()){
+                    gameArray[i][j] = temp;
+                    emptyBoxX = i;
+                    System.out.println(emptyBoxX);
+                    emptyBoxY = j;
+                    System.out.println(emptyBoxY);
+                }
+                else gameArray[i][j] = temp;
             }
         }
     }
@@ -48,17 +59,33 @@ public class GameMethods {
         System.out.println(gameArray[3][0] + " " + gameArray[3][1] + " " +gameArray[3][2] + " " + gameArray[3][3]);
     }
 
-    public void MoveBox(){
-
-
-
+    public void MoveBox(int x, int y){
+        String boxValue = gameArray[x][y];
+        if(IsValidMove(x,y)){
+            gameArray[x][y] = " ";
+            gameArray[emptyBoxX][emptyBoxY] = boxValue;
+        }
+        CheckIfWon();
     }
 
-    protected boolean IsValidMove(){
-
+    protected boolean IsValidMove(int x, int y){
+        if(x + 1 == emptyBoxX || x - 1 == emptyBoxX || y + 1 == emptyBoxY || y - 1 == emptyBoxY){
+            return true;
+        }
+        else return false;
     }
 
     protected boolean CheckIfWon(){
-
+        boolean won = true;
+        String[][] winArray = {{"1","2","3","4"}, {"5","6","7","8"}, {"9","10","11","12"}, {"13","14","15"," "}};
+        for (int i = 0; i <= 3; i++) {
+            for (int j = 0; j <= 3; j++) {
+                if(!gameArray[i][j].equals(winArray[i][j])){
+                    won = false;
+                    break;
+                }
+            }
+        }
+        return won;
     }
 }
