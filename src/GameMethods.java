@@ -5,6 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class GameMethods {
     protected int[][] gameArray = new int[4][4];
+    protected int[][] winArray = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 0}};
 
     //Lista för dubbletter
     List<Integer> numberList = new ArrayList<>();
@@ -68,7 +69,7 @@ public class GameMethods {
         emptyBoxX = x;
         emptyBoxY = y;
         gameArray[x][y] = 0;
-        CheckIfWon();
+        CheckIfWon(gameArray);
         testGame();
     }
 
@@ -84,12 +85,12 @@ public class GameMethods {
         } else return false;
     }
 
-    protected boolean CheckIfWon() {
+    public boolean CheckIfWon(int[][] inputArray) {
         boolean won = true;
         int[][] winArray = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 0}};
         for (int i = 0; i <= 3; i++) {
             for (int j = 0; j <= 3; j++) {
-                if (gameArray[i][j] != winArray[i][j]) {
+                if (inputArray[i][j] != winArray[i][j]) {
                     won = false;
                     break;
                 }

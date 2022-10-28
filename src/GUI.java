@@ -265,6 +265,8 @@ public class GUI extends JFrame {
                 gameMethods.NewGame();
                 gameArray = gameMethods.gameArray;
                 setButtonNumbers();
+                System.out.println(gameMethods.CheckIfWon(gameMethods.winArray));
+                System.out.println(gameMethods.CheckIfWon(gameArray));
                 gameMethods.testGame();
 
             }
