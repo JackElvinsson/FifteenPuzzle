@@ -47,4 +47,18 @@ public class GameMethods {
         System.out.println(gameArray[2][0] + " " + gameArray[2][1] + " " +gameArray[2][2] + " " + gameArray[2][3]);
         System.out.println(gameArray[3][0] + " " + gameArray[3][1] + " " +gameArray[3][2] + " " + gameArray[3][3]);
     }
+
+    public void MoveBox(){
+
+
+
+    }
+
+    protected boolean IsValidMove(){
+
+    }
+
+    protected boolean CheckIfWon(){
+
+    }
 }
