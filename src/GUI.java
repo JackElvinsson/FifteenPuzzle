@@ -5,22 +5,22 @@ public class GUI extends JFrame {
 
 
     // Buttons
-    JButton button0 = new JButton("*TOM RUTA*");
-    JButton button1 = new JButton("1");
-    JButton button2 = new JButton("2");
-    JButton button3 = new JButton("3");
-    JButton button4 = new JButton("4");
-    JButton button5 = new JButton("5");
-    JButton button6 = new JButton("6");
-    JButton button7 = new JButton("7");
-    JButton button8 = new JButton("8");
-    JButton button9 = new JButton("9");
-    JButton button10 = new JButton("10");
-    JButton button11 = new JButton("11");
-    JButton button12 = new JButton("12");
-    JButton button13 = new JButton("13");
-    JButton button14 = new JButton("14");
-    JButton button15 = new JButton("15");
+    JButton button00 = new JButton("");
+    JButton button01 = new JButton("");
+    JButton button02 = new JButton("");
+    JButton button03 = new JButton("");
+    JButton button10 = new JButton("");
+    JButton button11 = new JButton("");
+    JButton button12 = new JButton("");
+    JButton button13 = new JButton("");
+    JButton button20 = new JButton("");
+    JButton button21 = new JButton("");
+    JButton button22 = new JButton("");
+    JButton button23 = new JButton("");
+    JButton button30 = new JButton("");
+    JButton button31 = new JButton("");
+    JButton button32 = new JButton("");
+    JButton button33 = new JButton("");
 
     JButton newGame = new JButton("New game");
 
@@ -36,22 +36,22 @@ public class GUI extends JFrame {
 
         topPanel.add(newGame);
 
-        buttonPanel.add(button0);
-        buttonPanel.add(button1);
-        buttonPanel.add(button2);
-        buttonPanel.add(button3);
-        buttonPanel.add(button4);
-        buttonPanel.add(button5);
-        buttonPanel.add(button6);
-        buttonPanel.add(button7);
-        buttonPanel.add(button8);
-        buttonPanel.add(button9);
+        buttonPanel.add(button00);
+        buttonPanel.add(button01);
+        buttonPanel.add(button02);
+        buttonPanel.add(button03);
         buttonPanel.add(button10);
         buttonPanel.add(button11);
         buttonPanel.add(button12);
         buttonPanel.add(button13);
-        buttonPanel.add(button14);
-        buttonPanel.add(button15);
+        buttonPanel.add(button20);
+        buttonPanel.add(button21);
+        buttonPanel.add(button22);
+        buttonPanel.add(button23);
+        buttonPanel.add(button30);
+        buttonPanel.add(button31);
+        buttonPanel.add(button32);
+        buttonPanel.add(button33);
 
         gameCompletePanel.add(gameComplete);
 
