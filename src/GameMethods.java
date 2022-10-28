@@ -42,6 +42,9 @@ public class GameMethods {
 
     //Hämtar nytt random nummer mella 1-15
     protected int randomNum() {
+        if(numberList.size() == 16){
+            numberList.clear();
+        }
         while (true) {
             int randomNum = ThreadLocalRandom.current().nextInt(0, 16);
             if (!numberExists(numberList, randomNum)) {
