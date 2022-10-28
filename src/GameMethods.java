@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class GameMethods {
-    protected String[][] gameArray = new String[4][4];
+    protected int[][] gameArray = new int[4][4];
 
     //Lista för dubbletter
     List<Integer> numberList = new ArrayList<>();
@@ -15,8 +15,8 @@ public class GameMethods {
     public void NewGame(){
         for (int i = 0; i <= 3; i++) {
             for (int j = 0; j <= 3; j++) {
-                String temp = String.valueOf(randomNum());
-                if(temp.isBlank()){
+                int temp = randomNum();
+                if(temp == 0){
                     gameArray[i][j] = temp;
                     emptyBoxX = i;
                     System.out.println(emptyBoxX);
@@ -41,12 +41,12 @@ public class GameMethods {
     }
 
     //Hämtar nytt random nummer mella 1-15
-    protected String randomNum(){
+    protected int randomNum(){
         while (true){
-            int randomNum = ThreadLocalRandom.current().nextInt(1, 17);
+            int randomNum = ThreadLocalRandom.current().nextInt(0, 16);
             if(!numberExists(numberList, randomNum)){
                 numberList.add(randomNum);
-                return randomNum != 16 ? String.valueOf(randomNum) : " ";
+                return randomNum;
             }
         }
     }
@@ -60,9 +60,9 @@ public class GameMethods {
     }
 
     public void MoveBox(int x, int y){
-        String boxValue = gameArray[x][y];
+        int boxValue = gameArray[x][y];
         if(IsValidMove(x,y)){
-            gameArray[x][y] = " ";
+            gameArray[x][y] = 0;
             gameArray[emptyBoxX][emptyBoxY] = boxValue;
         }
         CheckIfWon();
@@ -77,10 +77,10 @@ public class GameMethods {
 
     protected boolean CheckIfWon(){
         boolean won = true;
-        String[][] winArray = {{"1","2","3","4"}, {"5","6","7","8"}, {"9","10","11","12"}, {"13","14","15"," "}};
+        int[][] winArray = {{1,2,3,4}, {5,6,7,8}, {9,10,11,12}, {13,14,15,0}};
         for (int i = 0; i <= 3; i++) {
             for (int j = 0; j <= 3; j++) {
-                if(!gameArray[i][j].equals(winArray[i][j])){
+                if(gameArray[i][j] != winArray[i][j]){
                     won = false;
                     break;
                 }
