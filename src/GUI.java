@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class GUI extends JFrame {
 
@@ -270,10 +271,6 @@ public class GUI extends JFrame {
         });
 
 
-
-
-
-
         pack();
         setSize(400, 400);
         setVisible(true);
@@ -282,23 +279,88 @@ public class GUI extends JFrame {
 
 
     }
-    protected void setButtonNumbers(){
+
+    protected void setButtonNumbers() {
+
+        Font font = new Font("Mangal", Font.BOLD, 30);
+
         button00.setText(String.valueOf(gameArray[0][0]));
+        button00.setFont(font);
+
         button01.setText(String.valueOf(gameArray[0][1]));
+        button01.setFont(font);
+
         button02.setText(String.valueOf(gameArray[0][2]));
+        button02.setFont(font);
+
         button03.setText(String.valueOf(gameArray[0][3]));
+        button03.setFont(font);
+
         button10.setText(String.valueOf(gameArray[1][0]));
+        button10.setFont(font);
+
         button11.setText(String.valueOf(gameArray[1][1]));
+        button11.setFont(font);
+
         button12.setText(String.valueOf(gameArray[1][2]));
+        button12.setFont(font);
+
         button13.setText(String.valueOf(gameArray[1][3]));
+        button13.setFont(font);
+
         button20.setText(String.valueOf(gameArray[2][0]));
+        button20.setFont(font);
+
         button21.setText(String.valueOf(gameArray[2][1]));
+        button21.setFont(font);
+
         button22.setText(String.valueOf(gameArray[2][2]));
+        button22.setFont(font);
+
         button23.setText(String.valueOf(gameArray[2][3]));
+        button23.setFont(font);
+
         button30.setText(String.valueOf(gameArray[3][0]));
+        button30.setFont(font);
+
         button31.setText(String.valueOf(gameArray[3][1]));
+        button31.setFont(font);
+
         button32.setText(String.valueOf(gameArray[3][2]));
+        button32.setFont(font);
+
         button33.setText(String.valueOf(gameArray[3][3]));
+        button33.setFont(font);
+
+
+        ArrayList<JButton> buttonArrayList = new ArrayList<>();
+        buttonArrayList.add(button00);
+        buttonArrayList.add(button01);
+        buttonArrayList.add(button02);
+        buttonArrayList.add(button03);
+        buttonArrayList.add(button10);
+        buttonArrayList.add(button11);
+        buttonArrayList.add(button12);
+        buttonArrayList.add(button13);
+        buttonArrayList.add(button20);
+        buttonArrayList.add(button21);
+        buttonArrayList.add(button22);
+        buttonArrayList.add(button23);
+        buttonArrayList.add(button30);
+        buttonArrayList.add(button31);
+        buttonArrayList.add(button32);
+        buttonArrayList.add(button33);
+
+        for (JButton button : buttonArrayList) {
+            if (button.getText().equals("0")) {
+                button.setBackground(Color.BLACK);
+                button.setForeground(Color.black);
+                button.setText("");
+            } else {
+                button.setBackground(null);
+                button.setForeground(null);
+            }
+        }
     }
 }
 
