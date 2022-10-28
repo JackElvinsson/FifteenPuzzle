@@ -30,10 +30,12 @@ public class GUI extends JFrame {
 
     JButton newGame = new JButton("New game");
 
+
     // Panels
     JPanel buttonPanel = new JPanel(new GridLayout(4, 4));
     JPanel topPanel = new JPanel(new GridLayout(1, 1));
     JPanel gameCompletePanel = new JPanel(new FlowLayout());
+
 
     // Labels
     JLabel gameComplete = new JLabel("");
@@ -79,6 +81,7 @@ public class GUI extends JFrame {
             }
         });
 
+
         button01.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -90,6 +93,8 @@ public class GUI extends JFrame {
                 }
             }
         });
+
+
         button02.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -99,9 +104,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(0, 2);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button03.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -111,9 +117,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(0, 3);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button10.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -123,9 +130,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(1, 0);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button11.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -135,9 +143,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(1, 1);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button12.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -147,9 +156,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(1, 2);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button13.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -159,9 +169,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(1, 3);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button20.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -171,9 +182,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(2, 0);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button21.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -183,9 +195,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(2, 1);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button22.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -195,9 +208,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(2, 2);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button23.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -207,9 +221,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(2, 3);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button30.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -219,9 +234,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(3, 0);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button31.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -231,9 +247,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(3, 1);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button32.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -243,9 +260,10 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(3, 2);
                     setButtonNumbers();
                 }
-
             }
         });
+
+
         button33.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -255,9 +273,9 @@ public class GUI extends JFrame {
                     gameMethods.MoveBox(3, 3);
                     setButtonNumbers();
                 }
-
             }
         });
+
 
         newGame.addActionListener(new ActionListener() {
             @Override
@@ -268,7 +286,6 @@ public class GUI extends JFrame {
                 System.out.println(gameMethods.CheckIfWon(gameMethods.winArray));
                 System.out.println(gameMethods.CheckIfWon(gameArray));
                 gameMethods.testGame();
-
             }
         });
 
@@ -278,8 +295,6 @@ public class GUI extends JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-
     }
 
     protected void setButtonNumbers() {

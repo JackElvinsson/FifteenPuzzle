@@ -1,4 +1,3 @@
-
 public class IsSolvable {
 
         public boolean isSolvable(int[] puzzle)
@@ -36,36 +35,4 @@ public class IsSolvable {
             return parity % 2 == 0;
         }
     }
-
-//    private boolean isSolvable(ArrayList<Integer> list) {
-//
-//        if(list.size() != 16)
-//        {
-//            System.err.println("isSolvable function works only" +
-//                    "with a list having 0-16 as values");
-//        }
-//
-//        int inversionSum = 0;  // If this sum is even it is solvable
-//        for (int i = 0; i < list.size(); i++) {
-//            // For empty square add row number to inversionSum
-//            if (list.get(i) == 0) {
-//                inversionSum += ((i / DIM) + 1);  //add Row number
-//                continue;
-//            }
-//
-//            int count = 0;
-//            for (int j = i + 1; j < list.size(); j++) {
-//                // No need need to count for empty square
-//                if (list.get(j) == 0) {
-//                    continue;
-//                } else if (list.get(i) > list.get(j)) { // If any element greater
-//                    count++;                            // than seed increse the
-//                }                                       // inversionSum
-//            }
-//            inversionSum += count;
-//        }
-//
-//        // if inversionSum is even return true, otherwise false
-//        return (inversionSum & 1) == 0;
-//    }
 }
