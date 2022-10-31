@@ -290,13 +290,8 @@ public class GUI extends JFrame {
         newGame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameMethods.NewGame();
-                gameArray = gameMethods.gameArray;
+                gameArray = gameMethods.NewGame();
                 setButtonNumbers();
-
-                if (gameMethods.CheckIfWon(gameArray)) {
-                    gameComplete.setText("Grattis! Du klarade av pusslet!");
-                }
                 gameMethods.testGame(gameArray);
             }
         });
@@ -305,10 +300,6 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 gameArray = gameMethods.TestGame();
                 setButtonNumbers();
-
-                if (gameMethods.CheckIfWon(gameArray)) {
-                    gameComplete.setText("Grattis! Du klarade av pusslet!");
-                }
                 gameMethods.testGame(gameArray);
             }
         });
@@ -401,6 +392,10 @@ public class GUI extends JFrame {
                 button.setForeground(null);
             }
         }
+        if (gameMethods.CheckIfWon(gameArray)) {
+            gameComplete.setText("Grattis! Du klarade av pusslet!");
+        }
+        else gameComplete.setText("");
     }
 }
 

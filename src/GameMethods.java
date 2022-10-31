@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class GameMethods {
-    protected int[][] gameArray = new int[4][4];
+    IsSolvable s = new IsSolvable();
+    //protected int[][] gameArray = new int[4][4];
     protected int[][] winArray = new int[4][4];
 
     //Lista för dubbletter
@@ -13,7 +14,7 @@ public class GameMethods {
     protected int emptyBoxY;
 
 
-    public int[][] TestGame(){
+    public int[][] TestGame() {
         winArray[0][0] = 1;
         winArray[0][1] = 2;
         winArray[0][2] = 3;
@@ -37,19 +38,27 @@ public class GameMethods {
 
     //Genererar nytt nummer för varje ruta
     public int[][] NewGame() {
-        for (int i = 0; i <= 3; i++) {
-            for (int j = 0; j <= 3; j++) {
-                int temp = randomNum();
-                if (temp == 0) {
-                    gameArray[i][j] = temp;
-                    emptyBoxX = i;
-                    System.out.println(emptyBoxX);
-                    emptyBoxY = j;
-                    System.out.println(emptyBoxY);
-                } else gameArray[i][j] = temp;
+        int[][] gameArray = new int[4][4];
+        while (true) {
+            for (int i = 0; i <= 3; i++) {
+                for (int j = 0; j <= 3; j++) {
+                    int temp = randomNum();
+                    if (temp == 0) {
+                        gameArray[i][j] = temp;
+                        emptyBoxX = i;
+                        System.out.println(emptyBoxX);
+                        emptyBoxY = j;
+                        System.out.println(emptyBoxY);
+                    } else gameArray[i][j] = temp;
+                }
             }
+            int[] solvableArray = {gameArray[0][0], gameArray[0][1], gameArray[0][2], gameArray[0][3], gameArray[1][0], gameArray[1][1], gameArray[1][2], gameArray[1][3], gameArray[2][0],
+                    gameArray[2][1], gameArray[2][2], gameArray[2][3], gameArray[3][0], gameArray[3][1], gameArray[3][2], gameArray[3][3]};
+            if (s.isSolvable(solvableArray)) {
+                System.out.println("Lösbar");
+                return gameArray;
+            }else System.out.println("Inte lösbar");
         }
-        return gameArray;
     }
 
     //Return true om numret finns
@@ -66,7 +75,7 @@ public class GameMethods {
 
     //Hämtar nytt random nummer mella 1-15
     protected int randomNum() {
-        if(numberList.size() == 16){
+        if (numberList.size() == 16) {
             numberList.clear();
         }
         while (true) {
@@ -92,7 +101,6 @@ public class GameMethods {
         emptyBoxX = x;
         emptyBoxY = y;
         inputArray[x][y] = 0;
-        CheckIfWon(inputArray);
         testGame(inputArray);
     }
 
