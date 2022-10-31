@@ -1,5 +1,9 @@
 public class IsSolvable {
 
+
+    //TODO LÄNK TILL IsSolvable() -----> https://stackoverflow.com/questions/34570344/check-if-15-puzzle-is-solvable
+
+
         public boolean isSolvable(int[] puzzle)
     {
         int parity = 0;
