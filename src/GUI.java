@@ -29,10 +29,11 @@ public class GUI extends JFrame {
 
 
     JButton newGame = new JButton("New game");
+    JButton testGame = new JButton("Test game");
 
     // Panels
     JPanel buttonPanel = new JPanel(new GridLayout(4, 4));
-    JPanel topPanel = new JPanel(new GridLayout(1, 1));
+    JPanel topPanel = new JPanel(new GridLayout(1, 2));
     JPanel gameCompletePanel = new JPanel(new FlowLayout());
 
     // Labels
@@ -41,6 +42,7 @@ public class GUI extends JFrame {
     public GUI() {
 
         topPanel.add(newGame);
+        topPanel.add(testGame);
 
         buttonPanel.add(button00);
         buttonPanel.add(button01);
@@ -73,7 +75,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(0, 0)) {
 
-                    gameMethods.MoveBox(0, 0);
+                    gameMethods.MoveBox(0, 0,gameArray);
                     setButtonNumbers();
                 }
             }
@@ -85,7 +87,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(0, 1)) {
 
-                    gameMethods.MoveBox(0, 1);
+                    gameMethods.MoveBox(0, 1,gameArray);
                     setButtonNumbers();
                 }
             }
@@ -96,7 +98,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(0, 2)) {
 
-                    gameMethods.MoveBox(0, 2);
+                    gameMethods.MoveBox(0, 2,gameArray);
                     setButtonNumbers();
                 }
 
@@ -108,7 +110,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(0, 3)) {
 
-                    gameMethods.MoveBox(0, 3);
+                    gameMethods.MoveBox(0, 3,gameArray);
                     setButtonNumbers();
                 }
 
@@ -120,7 +122,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(1, 0)) {
 
-                    gameMethods.MoveBox(1, 0);
+                    gameMethods.MoveBox(1, 0,gameArray);
                     setButtonNumbers();
                 }
 
@@ -132,7 +134,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(1, 1)) {
 
-                    gameMethods.MoveBox(1, 1);
+                    gameMethods.MoveBox(1, 1,gameArray);
                     setButtonNumbers();
                 }
 
@@ -144,7 +146,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(1, 2)) {
 
-                    gameMethods.MoveBox(1, 2);
+                    gameMethods.MoveBox(1, 2,gameArray);
                     setButtonNumbers();
                 }
 
@@ -156,7 +158,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(1, 3)) {
 
-                    gameMethods.MoveBox(1, 3);
+                    gameMethods.MoveBox(1, 3,gameArray);
                     setButtonNumbers();
                 }
 
@@ -168,7 +170,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(2, 0)) {
 
-                    gameMethods.MoveBox(2, 0);
+                    gameMethods.MoveBox(2, 0,gameArray);
                     setButtonNumbers();
                 }
 
@@ -180,7 +182,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(2, 1)) {
 
-                    gameMethods.MoveBox(2, 1);
+                    gameMethods.MoveBox(2, 1,gameArray);
                     setButtonNumbers();
                 }
 
@@ -192,7 +194,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(2, 2)) {
 
-                    gameMethods.MoveBox(2, 2);
+                    gameMethods.MoveBox(2, 2,gameArray);
                     setButtonNumbers();
                 }
 
@@ -204,7 +206,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(2, 3)) {
 
-                    gameMethods.MoveBox(2, 3);
+                    gameMethods.MoveBox(2, 3,gameArray);
                     setButtonNumbers();
                 }
 
@@ -216,7 +218,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(3, 0)) {
 
-                    gameMethods.MoveBox(3, 0);
+                    gameMethods.MoveBox(3, 0,gameArray);
                     setButtonNumbers();
                 }
 
@@ -228,7 +230,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(3, 1)) {
 
-                    gameMethods.MoveBox(3, 1);
+                    gameMethods.MoveBox(3, 1,gameArray);
                     setButtonNumbers();
                 }
 
@@ -240,7 +242,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(3, 2)) {
 
-                    gameMethods.MoveBox(3, 2);
+                    gameMethods.MoveBox(3, 2,gameArray);
                     setButtonNumbers();
                 }
 
@@ -252,7 +254,7 @@ public class GUI extends JFrame {
 
                 if (gameMethods.IsValidMove(3, 3)) {
 
-                    gameMethods.MoveBox(3, 3);
+                    gameMethods.MoveBox(3, 3,gameArray);
                     setButtonNumbers();
                 }
 
@@ -265,8 +267,16 @@ public class GUI extends JFrame {
                 gameMethods.NewGame();
                 gameArray = gameMethods.gameArray;
                 setButtonNumbers();
-                gameMethods.testGame();
+                gameMethods.testGame(gameArray);
 
+            }
+        });
+        testGame.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gameArray = gameMethods.TestGame();
+                setButtonNumbers();
+                gameMethods.testGame(gameArray);
             }
         });
 
