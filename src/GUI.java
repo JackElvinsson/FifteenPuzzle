@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.plaf.synth.SynthLookAndFeel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,7 +43,14 @@ public class GUI extends JFrame {
 
     public GUI() {
 
-        topPanel.add(newGame);
+        try {
+            UIManager.setLookAndFeel(new SynthLookAndFeel());
+        }catch (UnsupportedLookAndFeelException e) {
+            System.out.println("Ett fel inträffade");
+        }
+
+        Font fontTop = new Font("Mangal", Font.BOLD, 20);
+        topPanel.add(newGame).setFont(fontTop);
 
         buttonPanel.add(button00);
         buttonPanel.add(button01);
@@ -285,10 +293,13 @@ public class GUI extends JFrame {
                 setButtonNumbers();
                 System.out.println(gameMethods.CheckIfWon(gameMethods.winArray));
                 System.out.println(gameMethods.CheckIfWon(gameArray));
+
+                if (gameMethods.CheckIfWon(gameArray)) {
+                    gameComplete.setText("Grattis! Du klarade av pusslet!");
+                }
                 gameMethods.testGame();
             }
         });
-
 
         pack();
         setSize(400, 400);

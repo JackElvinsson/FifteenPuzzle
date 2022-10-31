@@ -41,7 +41,7 @@ public class GameMethods {
         return result;
     }
 
-    //Hämtar nytt random nummer mella 1-15
+    //Hämtar nytt random nummer mellan 1-15
     protected int randomNum() {
         if(numberList.size() == 16){
             numberList.clear();
