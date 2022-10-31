@@ -46,9 +46,7 @@ public class GameMethods {
                     if (temp == 0) {
                         gameArray[i][j] = temp;
                         emptyBoxX = i;
-                        System.out.println(emptyBoxX);
                         emptyBoxY = j;
-                        System.out.println(emptyBoxY);
                     } else gameArray[i][j] = temp;
                 }
             }
