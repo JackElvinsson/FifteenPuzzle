@@ -29,8 +29,8 @@ public class GUI extends JFrame {
     JButton button33 = new JButton("");
 
 
-    JButton newGame = new JButton("New game");
-    JButton testGame = new JButton("Test game");
+    JButton newGame = new JButton("Nytt spel");
+    JButton testGame = new JButton("Testspel");
 
 
     // Panels
@@ -384,11 +384,11 @@ public class GUI extends JFrame {
 
         for (JButton button : buttonArrayList) {
             if (button.getText().equals("0")) {
-                button.setBackground(Color.BLACK);
-                button.setForeground(Color.black);
+                button.setBackground(null);
+                button.setForeground(button.getBackground());
                 button.setText("");
             } else {
-                button.setBackground(null);
+                button.setBackground(Color.cyan);
                 button.setForeground(null);
             }
         }
