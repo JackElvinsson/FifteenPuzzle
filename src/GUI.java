@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class GUI extends JFrame {
 
+    //Skapar upp ett gameMethods objekt för att komma åt metoder
     GameMethods gameMethods = new GameMethods();
     int[][] gameArray;
 
@@ -44,12 +45,14 @@ public class GUI extends JFrame {
 
     public GUI() {
 
+        // Ändrar utseende
         try {
             UIManager.setLookAndFeel(new SynthLookAndFeel());
         }catch (UnsupportedLookAndFeelException e) {
             System.out.println("Ett fel inträffade");
         }
 
+        // Lägger till komponenter till paneler
         Font fontTop = new Font("Mangal", Font.BOLD, 20);
         topPanel.add(newGame).setFont(fontTop);
         topPanel.add(testGame).setFont(fontTop);
@@ -73,21 +76,22 @@ public class GUI extends JFrame {
 
         gameCompletePanel.add(gameComplete);
 
-        // GUI
+        // GUI - Lägger till paneler till frame
         setLayout(new BorderLayout());
         add("North", topPanel);
         add("Center", buttonPanel);
         add("South", gameCompletePanel);
 
-        button00.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-                if (gameMethods.IsValidMove(0, 0)) {
 
-                    gameMethods.MoveBox(0, 0,gameArray);
-                    setButtonNumbers();
-                }
+        // ActionListener's som kollar om knappen vi trycker på ligger på en plats som kan "byta plats" med 0-knappen
+        // Om sant, byter dessa text (0-knappen "flyttas")
+        button00.addActionListener(e -> {
+
+            if (gameMethods.IsValidMove(0, 0)) {
+
+                gameMethods.MoveBox(0, 0,gameArray);
+                setButtonNumbers();
             }
         });
 
@@ -287,20 +291,23 @@ public class GUI extends JFrame {
         });
 
 
+        // Skapar upp ett nytt, slumpat spel
         newGame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gameArray = gameMethods.NewGame();
                 setButtonNumbers();
-                gameMethods.testGame(gameArray);
+//                gameMethods.testGame(gameArray);
             }
         });
+
+        // Skapar upp ett förbestämt testspel
         testGame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gameArray = gameMethods.TestGame();
                 setButtonNumbers();
-                gameMethods.testGame(gameArray);
+//                gameMethods.testGame(gameArray);
             }
         });
 
@@ -311,6 +318,7 @@ public class GUI extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
+    // Uppdatering av knappar
     protected void setButtonNumbers() {
 
         Font font = new Font("Mangal", Font.BOLD, 30);
@@ -364,6 +372,7 @@ public class GUI extends JFrame {
         button33.setFont(font);
 
 
+        // Lista för att enkelt byta färg på knappar
         ArrayList<JButton> buttonArrayList = new ArrayList<>();
         buttonArrayList.add(button00);
         buttonArrayList.add(button01);
